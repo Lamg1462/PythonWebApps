@@ -5,8 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Superhero
 
 
-class HeroListView(ListView):
-    template_name = 'hero/list.html'
+class HulkView(TemplateView):
+    template_name = 'hero.html'
     model = Superhero
 
 
