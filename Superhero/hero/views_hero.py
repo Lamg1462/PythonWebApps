@@ -31,3 +31,10 @@ class HeroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
     template_name = 'hero/delete.html'
     success_url = reverse_lazy('hero_list')
+
+      def get_context_data(self, **kwargs):
+        return {
+            'title': 'Hulk',
+            'id': 'Bruce Banner',
+            'image': '/static/images/hulk.jpg'
+        }
