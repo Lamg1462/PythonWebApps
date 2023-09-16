@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ondigitalocean.app']
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,8 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # My apps
     'photos',
 ]
 
