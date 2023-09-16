@@ -6,10 +6,12 @@
 
 {% for photo in photos %}
 
-<a href="/photo/{{ photo.id }}">
-    <img class="photo" src="/{{ photo.file }}" alt="Chapter {{ photo.id }}" width="200">
-</a>
+<img src="{{ photo }}" alt="{{photo}}" width="200">
 
+<!-- <a href="/photo/{{ photo.id }}">
+    <img class="photo" src="/{{ photo.file }}" alt="{{ photo.id }}" width="200">
+</a>
+-->
 {% endfor %}
 
 {% endblock content %}
