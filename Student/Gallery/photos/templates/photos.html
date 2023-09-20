@@ -6,7 +6,9 @@
 
 {% for photo in photos %}
 
+<a href="{{ photo }}">
 <img src="{{ photo }}" alt="{{photo}}" width="200">
+</a>
 
 <!-- <a href="/photo/{{ photo.id }}">
     <img class="photo" src="/{{ photo.file }}" alt="{{ photo.id }}" width="200">

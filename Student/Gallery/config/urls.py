@@ -7,4 +7,3 @@ urlpatterns = [
     path('',PhotoListView.as_view())
 ]
 
-
