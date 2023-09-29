@@ -1,5 +1,8 @@
 from django.urls import path
 from .views import SuperheroListView, SuperheroDetailView, SuperheroCreateView, SuperheroUpdateView, SuperheroDeleteView
+from django.contrib import admin
+from django.urls import path, include
+
 
 urlpatterns = [
     path('', SuperheroListView.as_view(), name='superhero_list'),
@@ -9,8 +12,6 @@ urlpatterns = [
     path('delete/<int:pk>/', SuperheroDeleteView.as_view(), name='superhero_delete'),
 ]
 
-from django.contrib import admin
-from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
