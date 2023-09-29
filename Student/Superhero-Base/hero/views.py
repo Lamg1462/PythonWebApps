@@ -22,7 +22,8 @@ class HeroCreateView(CreateView):
 
 class HeroUpdateView(UpdateView):
     template_name = "hero/edit.html"
-    model = Superherofields = '_all_'
+    model = Superhero
+    fields = '_all_'
 
 
 class HeroDeleteView(DeleteView):
