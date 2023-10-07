@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Website Title</title>
+    <!-- Add your CSS and other head elements here -->
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'superhero_list' %}">Superheroes</a></li>
+            <!-- Add links to other views as needed -->
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li>Welcome, {{ user.username }}</li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>
