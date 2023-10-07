@@ -1,32 +1,34 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Superhero
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
-from django.views.generic import CreateView, DeleteView, ListView, UpdateView, DetailView
 
-from.models import Superhero
-
-class HeroListview(ListView):
-    template_name = 'hero/lists.html'
+class SuperheroListView(ListView):
     model = Superhero
+    template_name = 'superheroes/superhero_list.html'
+    context_object_name = 'superheroes'
 
-
-class HeroDetailView(DetailView):
-    template_name = 'hero/detail.html'
+class SuperheroDetailView(DetailView):
     model = Superhero
+    template_name = 'superheroes/superhero_detail.html'
+    context_object_name = 'superhero'
 
-
-class HeroCreateView(CreateView):
-    template_name = "hero/create.html"
+class SuperheroCreateView(LoginRequiredMixin, CreateView):
     model = Superhero
+    template_name = 'superheroes/superhero_form.html'
     fields = '__all__'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-class HeroUpdateView(UpdateView):
-    template_name = "hero/edit.html"
+class SuperheroUpdateView(LoginRequiredMixin, UpdateView):
     model = Superhero
+    template_name = 'superheroes/superhero_form.html'
     fields = '__all__'
 
-
-class HeroDeleteView(DeleteView):
-    template_name = "hero/delete.html"
+class SuperheroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
-    success_url = reverse_lazy('hero_list')
+    template_name = 'superheroes/superhero_confirm_delete.html'
+    success_url = reverse_lazy('superhero_list')
