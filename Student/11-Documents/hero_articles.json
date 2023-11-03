@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "title": "The Incredible Hulk",
+        "content": "The story of Bruce Banner and his transformation into the Hulk."
+    },
+    {
+        "id": 2,
+        "title": "The Amazing Spiderman",
+        "content": "Adventures of Peter Parker as Spiderman in New York City."
+    },
+    {
+        "id": 3,
+        "title": "The Mysterious Black Widow",
+        "content": "Unraveling the mysteries surrounding Natasha Romanoff."
+    },
+    {
+        "id": 4,
+        "title": "The Legend of Captain America",
+        "content": "Steve Rogers' journey as the superhero embodying American values."
+    },
+    {
+        "id": 5,
+        "title": "The Genius Philanthropist, Ironman",
+        "content": "Tony Stark's life, achievements, and battles as Ironman."
+    }
+]

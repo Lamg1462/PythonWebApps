@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "hero_name": "Hulk",
+        "real_name": "Bruce Banner",
+        "image": "hulk_image.jpg",
+        "description": "A brilliant scientist who, when angry, transforms into the incredible Hulk.",
+        "strengths": "Superhuman strength, durability, regeneration.",
+        "weaknesses": "Vulnerability to mind control, limited intelligence in Hulk form."
+    },
+    {
+        "id": 2,
+        "hero_name": "Spiderman",
+        "real_name": "Peter Parker",
+        "image": "spiderman_image.jpg",
+        "description": "A high school student bitten by a radioactive spider, gaining spider-like abilities.",
+        "strengths": "Wall-crawling, web-slinging, enhanced strength, agility, danger sense.",
+        "weaknesses": "Vulnerability to certain materials, personal life challenges."
+    },
+    {
+        "id": 3,
+        "hero_name": "Black Widow",
+        "real_name": "Natasha Romanoff",
+        "image": "blackwidow_image.jpg",
+        "description": "A highly trained spy and assassin with exceptional combat skills.",
+        "strengths": "Expert combatant, espionage skills, advanced weaponry.",
+        "weaknesses": "Mortal, human vulnerabilities."
+    },
+    {
+        "id": 4,
+        "hero_name": "Captain America",
+        "real_name": "Steve Rogers",
+        "image": "captainamerica_image.jpg",
+        "description": "A super soldier with unwavering morals and leadership skills.",
+        "strengths": "Enhanced strength, agility, combat skills, indestructible shield.",
+        "weaknesses": "Mortal, human vulnerabilities."
+    },
+    {
+        "id": 5,
+        "hero_name": "Ironman",
+        "real_name": "Tony Stark",
+        "image": "ironman_image.jpg",
+        "description": "A billionaire genius who builds a powered suit of armor to fight evil.",
+        "strengths": "Genius-level intellect, powered armor suit with various capabilities.",
+        "weaknesses": "Reliance on technology, health issues."
+    }
+]
