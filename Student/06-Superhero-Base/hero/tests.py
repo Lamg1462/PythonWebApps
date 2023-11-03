@@ -5,11 +5,18 @@ from django.urls import reverse
 class SuperheroTestCase(TestCase):
     def setUp(self):
         self.superhero1 = Superhero.objects.create(
-            name="Superhero 1",
-            weaknesses="Weakness 1",
-            strengths="Strength 1",
-            description="Description 1",
-            image="superhero1.jpg"  
+            name="Hulk",
+            weaknesses="Vulnerability to mind control, limited intelligence in Hulk form",
+            strengths="Superhuman strength, durability, regeneration.",
+            description="A brilliant scientist who, when angry, transforms into the incredible Hulk.",
+            image="hulk.jpg"  
+        self.superhero2 = Superhero.objects.create(
+            name="Spiderman",
+            weaknesses="Weakness 2",
+            strengths="Strength 2",
+            description="Description 2",
+            image="spiderman.jpg"  
+        )
         )
         
     def test_superhero_list_view(self):

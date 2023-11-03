@@ -1,0 +1,25 @@
+{% extends 'theme.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <h1>{{ hero.title }}</h1>
+            <p>{{ hero.Name }}</p>
+        </div>
+        <div class="col">
+            <h2>Strengths</h2>
+            <ul>
+                <li>{{ hero.strength }}</li>
+            </ul>
+            <h2>Weaknesses</h2>
+            <ul>
+                <li>{{ hero.weakness }}</li>
+            </ul>
+        </div>
+    <div class="col">
+        <img src="{{ hero.imagePath }}" alt="{{ hero.title }}" width="300">
+    </div>
+    </div>
+</div>
+{% endblock content %}
