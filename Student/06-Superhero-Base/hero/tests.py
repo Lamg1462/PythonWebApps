@@ -12,9 +12,9 @@ class SuperheroTestCase(TestCase):
             image="hulk.jpg"  
         self.superhero2 = Superhero.objects.create(
             name="Spiderman",
-            weaknesses="Weakness 2",
-            strengths="Strength 2",
-            description="Description 2",
+            weaknesses="Vulnerability to certain materials, personal life challenges.",
+            strengths="Wall-crawling, web-slinging, enhanced strength, agility, danger sense.",
+            description="A high school student bitten by a radioactive spider, gaining spider-like abilities.",
             image="spiderman.jpg"  
         )
         )
