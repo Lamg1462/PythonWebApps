@@ -1,38 +1,43 @@
-
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include, path
-from django.views.generic import RedirectView
-
-from .views_user import UserAddView, UserHomeView, UserUpdateView
-from .views_author import AuthorDeleteView, AuthorDetailView, AuthorListView, AuthorUpdateView
-from .views_photo import PhotoCarouselView, PhotoDeleteView, PhotoDetailView, PhotoListView, PhotoCreateView, PhotoUpdateView
-
+from django.urls import path
+from .views import (
+    SuperheroListView,
+    SuperheroDetailView,
+    SuperheroCreateView,
+    SuperheroUpdateView,
+    SuperheroDeleteView,
+    InvestigatorListView,
+    InvestigatorDetailView,
+    ArticleListView,
+    ArticleDetailView,
+    ArticleCreateView,
+    ArticleUpdateView,
+    ArticleDeleteView,
+    PhotoListView,
+    PhotoDetailView,
+    PhotoCreateView,
+    PhotoUpdateView,
+    PhotoDeleteView,
+)
 
 urlpatterns = [
+    path('superheroes/', SuperheroListView.as_view(), name='superhero-list'),
+    path('superheroes/<int:pk>/', SuperheroDetailView.as_view(), name='superhero-detail'),
+    path('superheroes/new/', SuperheroCreateView.as_view(), name='superhero-create'),
+    path('superheroes/<int:pk>/edit/', SuperheroUpdateView.as_view(), name='superhero-update'),
+    path('superheroes/<int:pk>/delete/', SuperheroDeleteView.as_view(), name='superhero-delete'),
 
-    # Accounts
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('investigators/', InvestigatorListView.as_view(), name='investigator-list'),
+    path('investigators/<int:pk>/', InvestigatorDetailView.as_view(), name='investigator-detail'),
 
-    # User
-    path('',                            RedirectView.as_view(url='author/home')),
-    path('author/home',                 UserHomeView.as_view(),     name='author_home'),
-    path('author/add',                  UserAddView.as_view(),      name='author_add'),
-    path('user/<int:pk>/',              UserUpdateView.as_view(),   name='user_edit'),
+    path('articles/', ArticleListView.as_view(), name='article-list'),
+    path('articles/<int:pk>/', ArticleDetailView.as_view(), name='article-detail'),
+    path('articles/new/', ArticleCreateView.as_view(), name='article-create'),
+    path('articles/<int:pk>/edit/', ArticleUpdateView.as_view(), name='article-update'),
+    path('articles/<int:pk>/delete/', ArticleDeleteView.as_view(), name='article-delete'),
 
-    # Author
-    path('author/',                     AuthorListView.as_view(),    name='author_list'),
-    path('author/<int:pk>',             AuthorDetailView.as_view(),  name='author_detail'),
-    path('author/<int:pk>/',            AuthorUpdateView.as_view(),  name='author_edit'),
-    path('author/<int:pk>/delete',      AuthorDeleteView.as_view(),  name='author_delete'),
-
-    # Photo
-    path('photo/carousel',              PhotoCarouselView.as_view()),
-    path('photo/',                      PhotoListView.as_view(),    name='photo_list'),
-    path('photo/<int:pk>',              PhotoDetailView.as_view(),  name='photo_detail'),
-    path('photo/add',                   PhotoCreateView.as_view(),  name='photo_add'),
-    path('photo/<int:pk>/',             PhotoUpdateView.as_view(),  name='photo_edit'),
-    path('photo/<int:pk>/delete',       PhotoDeleteView.as_view(),  name='photo_delete'),
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('photos/', PhotoListView.as_view(), name='photo-list'),
+    path('photos/<int:pk>/', PhotoDetailView.as_view(), name='photo-detail'),
+    path('photos/new/', PhotoCreateView.as_view(), name='photo-create'),
+    path('photos/<int:pk>/edit/', PhotoUpdateView.as_view(), name='photo-update'),
+    path('photos/<int:pk>/delete/', PhotoDeleteView.as_view(), name='photo-delete'),
+]

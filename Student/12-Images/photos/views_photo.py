@@ -1,64 +1,28 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, DetailView, ListView, RedirectView, TemplateView, UpdateView
-
-from .models import Author, Photo
-
-
-class PhotoView(RedirectView):
-    url = reverse_lazy('photo_list')
-
+from .models import Photo
+from .forms import PhotoForm
 
 class PhotoListView(ListView):
-    template_name = 'photo/list.html'
     model = Photo
-    context_object_name = 'photos'
-
-
-class PhotoCarouselView(TemplateView):
-    template_name = 'photo/carousel.html'
-
-    def get_context_data(self, **kwargs):
-        photos = Author.get_me(self.request.user).photos
-        carousel = carousel_data(photos)
-        return dict(title='Carousel View', carousel=carousel)
-
-
-def carousel_data(photos):
-
-    def photo_data(id, image):
-        x = dict(image_url=f"/media/{image}", id=str(id), label=f"{image} {id}")
-        if id == 0:
-            x.update(active="active", aria='aria-current="true"')
-        return x
-
-    return [photo_data(id, photo.image) for id, photo in enumerate(photos)]
-
+    template_name = 'superheroes/photo_list.html'
 
 class PhotoDetailView(DetailView):
-    template_name = 'photo/detail.html'
     model = Photo
-    context_object_name = 'photo'
+    template_name = 'superheroes/photo_detail.html'
 
-
-class PhotoCreateView(LoginRequiredMixin, CreateView):
-    template_name = "photo/add.html"
+class PhotoCreateView(CreateView):
     model = Photo
-    fields = '__all__'
+    template_name = 'superheroes/photo_form.html'
+    form_class = PhotoForm
 
-    def form_valid(self, form):
-        form.instance.author = Author.get_me(self.request.user)
-        return super().form_valid(form)
-
-
-class PhotoUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "photo/edit.html"
+class PhotoUpdateView(UpdateView):
     model = Photo
-    fields = '__all__'
+    template_name = 'superheroes/photo_form.html'
+    form_class = PhotoForm
 
-
-class PhotoDeleteView(LoginRequiredMixin, DeleteView):
+class PhotoDeleteView(DeleteView):
     model = Photo
-    template_name = 'photo/delete.html'
-    success_url = reverse_lazy('photo_list')
+    template_name = 'superheroes/photo_confirm_delete.html'
+    success_url = reverse_lazy('photo-list')
