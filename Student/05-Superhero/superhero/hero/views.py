@@ -1,20 +1,25 @@
+from pathlib import Path
+from typing import Any, Dict
 from django.shortcuts import render
+from django.views.generic import TemplateView
+import json
+
+from .models import Hero
 
 
-
-class SuperheroListView(TemplateView):
-    template_name = 'superhero.html'
+class HeroListView(TemplateView):
+    template_name = 'heroes.html'
 
     def get_context_data(self, **kwargs):
         return {
-            'object_list': Superhero.objects.all()
+            'object_list': Hero.objects.all()
         }
 
 
-class SuperheroDetailView(TemplateView):
-    template_name = 'superhero.html'
+class HeroDetailView(TemplateView):
+    template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
         return {
-            'hero': Superhero.objects.get(pk=kwargs['pk'])
+            'hero': Hero.objects.get(pk=kwargs['pk'])
         }
